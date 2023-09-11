@@ -1,13 +1,13 @@
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.model.huggingface.HuggingFaceChatModel;
 
-public class HelloWorldExample {
+public class HelloWorldExampleHF {
 
     public static void main(String[] args) {
 
         // Create an instance of a model
-        ChatLanguageModel model = OpenAiChatModel.withApiKey(ApiKeys.OPENAI_API_KEY);
+        ChatLanguageModel model = HuggingFaceChatModel.withAccessToken(ApiKeys.HF_API_KEY);
 
         // Start interacting
         AiMessage answer = model.sendUserMessage("Hello world! My name is Juanito ");

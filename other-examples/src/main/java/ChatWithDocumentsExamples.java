@@ -7,6 +7,7 @@ import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
+import dev.langchain4j.model.huggingface.HuggingFaceChatModel;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
 import dev.langchain4j.model.openai.OpenAiChatModel;
@@ -55,7 +56,8 @@ public class ChatWithDocumentsExamples {
             ingestor.ingest(document);
 
             ConversationalRetrievalChain chain = ConversationalRetrievalChain.builder()
-                    .chatLanguageModel(OpenAiChatModel.withApiKey(ApiKeys.OPENAI_API_KEY))
+                    //.chatLanguageModel(OpenAiChatModel.withApiKey(ApiKeys.OPENAI_API_KEY))
+                    .chatLanguageModel(HuggingFaceChatModel.withAccessToken(ApiKeys.HF_API_KEY))
                     .retriever(EmbeddingStoreRetriever.from(embeddingStore, embeddingModel))
                     // .chatMemory() // you can override default chat memory
                     // .promptTemplate() // you can override default prompt template

@@ -5,7 +5,7 @@ public class ApiKeys {
     public static final String OPENAI_API_KEY = "demo";
 
     // You can get your own HuggingFace API key here: https://huggingface.co/settings/tokens
-    public static final String HF_API_KEY = System.getenv("HF_API_KEY");
+    public static final String HF_API_KEY =  "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";
 
     // You can get your own Judge0 RapidAPI key here: https://rapidapi.com/judge0-official/api/judge0-ce
     public static final String RAPID_API_KEY = System.getenv("RAPID_API_KEY");

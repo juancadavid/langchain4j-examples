@@ -1,13 +1,16 @@
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.model.localai.*;
 
-public class HelloWorldExample {
+public class HelloWorldExampleLocalAI {
 
     public static void main(String[] args) {
 
         // Create an instance of a model
-        ChatLanguageModel model = OpenAiChatModel.withApiKey(ApiKeys.OPENAI_API_KEY);
+        ChatLanguageModel model = LocalAiChatModel.builder()
+            .baseUrl("https://ia.e-citiz.com/localai/")
+            .modelName("codellama-7b-instruct-gguf")
+            .build();
 
         // Start interacting
         AiMessage answer = model.sendUserMessage("Hello world! My name is Juanito ");
